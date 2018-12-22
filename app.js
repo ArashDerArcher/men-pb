@@ -27,6 +27,8 @@ app.use(bodyParser.json());
 // set Public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// Home Route
 app.get('/', function(req,res){
     Article.find({}, function(err, articles){
         if(err){
@@ -38,4 +40,9 @@ app.get('/', function(req,res){
             });
         }
     });
+});
+
+// Start Server
+app.listen(3000, function(){
+    console.log('Server started on port: '+ `${port}`)
 });
