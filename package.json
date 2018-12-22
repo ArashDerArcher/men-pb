@@ -19,6 +19,7 @@
   "dependencies": {
     "bcryptjs": "*",
     "body-parser": "*",
+    "bootstrap": "^3.4.0",
     "connect-flash": "*",
     "express": "*",
     "express-messages": "*",
