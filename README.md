@@ -11,7 +11,7 @@ This is a knowledgebase app written in Express and NodeJS
 * BCrypt Hashing
 
 #Install dependencies
-npm install
+$npm install
 
 #Run server
-npm start
+$npm start
