@@ -11,12 +11,12 @@ const config = require('./config/database');
 mongoose.connect(config.database);
 let db = mongoose.connections;
 
-/*
+
 // check connection
 db.once('open', function(){
     console.log('Connected to MongoDB.');
 });
-*/
+
 
 // check for DB errors
 db.on('error', function(erro){

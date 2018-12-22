@@ -16,7 +16,7 @@ module.exports = function(passport){
             }
 
             // Match password
-            bcrypt.campare(password, user.password, function(err, isMatch){
+            bcrypt.compare(password, user.password, function(err, isMatch){
                 if(err) throw err;
                 if(isMatch){
                     return done(null, user);
@@ -33,7 +33,7 @@ module.exports = function(passport){
 
     passport.deserializeUser(function(id, done){
         User.findById(id, function(err, user){
-            done(err, user)
+            done(err, user);
         });
     });
 }

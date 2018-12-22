@@ -12,7 +12,7 @@ router.get('/register', function(req,res){
 });
 
 // register Proccess
-router.post('/register'. function(req,res){
+router.post('/register'. function(req, res) {
     const name = req.body.name;
     const email = req.body.email;
     const username = req.body.username;
@@ -59,7 +59,7 @@ router.post('/register'. function(req,res){
             });
         });
     }
-}
+});
 
 // Login Form
 router.get('/login', function(req, res){
@@ -76,7 +76,7 @@ router.post('/login', function(req, res, next){
 });
 
 // Logout
-router.get('/logout', function(req, res{
+router.get('/logout', function(req, res){
     req.logout();
     req.flash('success', 'You are logged out');
     res.redirect('/users/login');

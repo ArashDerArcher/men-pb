@@ -46,8 +46,8 @@ router.post('/add', function(req, res){
 
 // load Edit Form
 router.get('/edit/:id', ensureAuthenticated, function(req, res){
-    Article.findbyId(req.params.id, function(err, article){
-        id(article.author != req.user._id){
+    Article.findById(req.params.id, function(err, article){
+        if(article.author != req.user._id){
             req.flash('danger', 'Not Authorized!');
             res.redirect('/');
         }
@@ -61,7 +61,7 @@ router.get('/edit/:id', ensureAuthenticated, function(req, res){
 // update submit POST route
 router.post('/edit/:id', function(req, res){
     let article = {};
-    article.title = req.body. title;
+    article.title = req.body.title;
     article.author = req.body.author;
     article.body = req.body.body;
 
@@ -84,11 +84,11 @@ router.delete('/:id', function(req, res){
         res.status(500).send();
     }
 
-    let query = { _id:req.params.id}
+    let query = {_id:req.params.id}
 
     Article.findById(req.params.id, function(err, article){
         if(article.author != req.user._id){
-            res.status(500).send
+            res.status(500).send();
         } else {
             Article.remove(query, function(err){
                 if(err){
@@ -102,7 +102,7 @@ router.delete('/:id', function(req, res){
 
 // get single article
 router.get('/:id', function(req, res){
-    Article.findById(req.params.id, funtion(err, article){
+    Article.findById(req.params.id, function(err, article){
         User.findById(article.author, function(err, user){
             res.render('article', {
                 article:article,
@@ -118,7 +118,7 @@ function ensureAuthenticated(req, res, next){
        return next(); 
     } else {
         req.flash('danger', 'Please login');
-        res.redirect('/users/login')
+        res.redirect('/users/login');
     }
 }
 module.exports = router;
