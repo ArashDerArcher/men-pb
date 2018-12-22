@@ -10,8 +10,8 @@ This is a knowledgebase app written in Express and NodeJS
 * PassportJS Authentication
 * BCrypt Hashing
 
-#Install dependencies
+#Install dependencies <br>
 $npm install
 
-#Run server
+#Run server <br>
 $npm start
