@@ -2,6 +2,7 @@
 This is a knowledgebase app written in Express and NodeJS
 
 #Technologies
+* Bootstrap
 * Express
 * NodeJS
 * Express Messages, session, Connect Flash & validation
