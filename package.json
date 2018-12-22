@@ -12,14 +12,15 @@
     "mongodb",
     "pug",
     "passport",
-    "bcrypt"
+    "bcrypt",
+    "bootstrap"
   ],
   "author": "ArashDerArcher",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "*",
     "body-parser": "*",
-    "bootstrap": "^3.4.0",
+    "bootstrap": "^4.2.1",
     "connect-flash": "*",
     "express": "*",
     "express-messages": "*",
