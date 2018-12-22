@@ -1,0 +1,32 @@
+{
+  "name": "men-pb",
+  "version": "1.0.0",
+  "description": "knowladgebase article submission forum",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "keywords": [
+    "express",
+    "nodejs",
+    "mongodb",
+    "pug",
+    "passport",
+    "bcrypt"
+  ],
+  "author": "ArashDerArcher",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "express": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "mongoose": "^*",
+    "passport": "*",
+    "passport-local": "*",
+    "pug": "*"
+  }
+}
