@@ -12,7 +12,7 @@ router.get('/register', function(req,res){
 });
 
 // register Proccess
-router.post('/register'. function(req, res) {
+router.post('/register', function(req, res) {
     const name = req.body.name;
     const email = req.body.email;
     const username = req.body.username;

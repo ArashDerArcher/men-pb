@@ -9,7 +9,7 @@ const passport = require('passport');
 const config = require('./config/database');
 
 mongoose.connect(config.database);
-let db = mongoose.connections;
+let db = mongoose.connection;
 
 
 // check connection
@@ -77,7 +77,7 @@ app.use(expressValidator({
   }));
 
 // Passport config
-reuire('/config/passport')(passport);
+require('./config/passport')(passport);
 // Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -102,10 +102,10 @@ app.get('/', function(req,res){
 });
 
 // Route files
-let articles = require('./routes.articles');
+let articles = require('./routes/articles');
 let users = require('./routes/users');
 app.use('./articles', articles);
-app.user('./users', users);
+app.use('./users', users);
 
 // Start Server
 app.listen(3000, function(){

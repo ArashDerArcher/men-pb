@@ -24,7 +24,7 @@
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
-    "mongoose": "*",
+    "mongoose": "^4.10.2",
     "nodemon": "*",
     "passport": "*",
     "passport-local": "*",
