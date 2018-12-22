@@ -27,3 +27,15 @@ app.use(bodyParser.json());
 // set Public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/', function(req,res){
+    Article.find({}, function(err, articles){
+        if(err){
+            console.log(err);
+        } else {
+            res.render('index', {
+                title:'Articles',
+                articles:articles
+            });
+        }
+    });
+});
