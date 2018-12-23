@@ -110,12 +110,25 @@ app.get('/', function(req,res){
             console.log(err);
         } else {*/
             res.render('index', {
-                title: "Express...",
+                title: "DataBase",
                 users: users
             });
 //        }
 //    });
 });
+
+app.post('/users/add', function(req, res){
+    //console.log('Form submitted!');
+    //console.log(req.body.first_name);
+    var newUser = {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email
+    }
+    console.log(newUser);
+});
+
+
 /*
 // Route files
 let articles = require('./routes/articles');
