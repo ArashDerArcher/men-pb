@@ -131,11 +131,12 @@ app.post('/users/add', function(req, res){
     var errors = req.validationErrors();
 
     if(errors){
-        res.render('index', {
+        res.redirect('/');
+        /*res.render('index', {
             title: "DataBase",
             users: users,
             errors: errors
-        });
+        });*/
     } else {
         var newUser = {
             first_name: req.body.first_name,
