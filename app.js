@@ -136,14 +136,20 @@ app.post('/users/add', function(req, res){
             errors: errors
         });
     } else {
-
-    var newUser = {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email
-    }
+        var newUser = {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email
+        }
+    // add the new user to the database    
+    db.users.insert(newUser, function(err, result){
+        if(err){
+            console.log(err);
+        }
+        res.redirect('/');
+    });    
     //console.log(newUser);
-    console.log('success');
+    //console.log('success');
 }
 
 });
