@@ -31,19 +31,20 @@ let Aricle = require('./models/article');
 
 // Load view engine
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
 
 // Body Parser Middleware
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-
 // parse application/json
 app.use(bodyParser.json());
 
-// set Public folder
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// set Public folder as Static path
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*
 // Express Session Middleware
 app.use(session({
     secret: 'keyboard cat',
@@ -86,27 +87,26 @@ app.get('*', function(req, res, next){
     res.locals.user = req.user || null;
     next();
 });
-
+*/
 // Home Route
 app.get('/', function(req,res){
-    Article.find({}, function(err, articles){
+    /*Article.find({}, function(err, articles){
         if(err){
             console.log(err);
-        } else {
+        } else {*/
             res.render('index', {
-                title:'Articles',
-                articles:articles
+                title: 'Clients'
             });
-        }
-    });
+//        }
+//    });
 });
-
+/*
 // Route files
 let articles = require('./routes/articles');
 let users = require('./routes/users');
 app.use('./articles', articles);
 app.use('./users', users);
-
+*/
 // Start Server
 app.listen(3000, function(){
     console.log('Server started on port 3000...');
