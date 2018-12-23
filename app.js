@@ -7,8 +7,12 @@ const flash = require('connect-flash')
 const session = require('express-session')
 const passport = require('passport');
 const config = require('./config/database');
+const mongojs = require('mongojs');
 
+// mongojs([db_name], ['collection'])
+var db = mongojs('menpb', ['users']);
 
+/*
 mongoose.connect(config.database);
 let db = mongoose.connection;
 
@@ -23,6 +27,7 @@ db.once('open', function(){
 db.on('error', function(erro){
     console.log(err);
 });
+*/
 
 // Init App
 const app = express();
@@ -112,15 +117,20 @@ var users = [
 ]
 // Home Route
 app.get('/', function(req,res){
+    //users collection in DB
+    db.users.find(function(err, docs){
+            console.log(docs);
+            res.render('index', {
+                title: "DataBase",
+                users: docs//users
+            });
+//        }
+    })
     /*Article.find({}, function(err, articles){
         if(err){
             console.log(err);
         } else {*/
-            res.render('index', {
-                title: "DataBase",
-                users: users
-            });
-//        }
+            
 //    });
 });
 
