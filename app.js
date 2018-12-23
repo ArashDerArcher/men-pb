@@ -88,6 +88,21 @@ app.get('*', function(req, res, next){
     next();
 });
 */
+
+var users = [
+    {
+        id:1,
+        first_name:'John',
+        last_name:'Dow',
+        email: 'jdoe@yahoo.com'
+    },
+    {
+        id:1,
+        first_name:'Bob',
+        last_name:'Sponge',
+        email: 'bsponge@gmail.com'
+    }
+]
 // Home Route
 app.get('/', function(req,res){
     /*Article.find({}, function(err, articles){
@@ -95,7 +110,8 @@ app.get('/', function(req,res){
             console.log(err);
         } else {*/
             res.render('index', {
-                title: 'Clients'
+                title: "Express...",
+                users: users
             });
 //        }
 //    });
