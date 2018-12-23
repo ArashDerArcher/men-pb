@@ -8,6 +8,7 @@ const session = require('express-session')
 const passport = require('passport');
 const config = require('./config/database');
 
+
 mongoose.connect(config.database);
 let db = mongoose.connection;
 
@@ -28,6 +29,12 @@ const app = express();
 
 // bring in the models
 let Aricle = require('./models/article');
+
+// Global vars
+app.use(function(req, res, next){
+    res.locals.errors = null;
+    next();
+});
 
 // Load view engine
 app.set('views', path.join(__dirname, 'views'));
@@ -58,7 +65,7 @@ app.use(function(req, res, next){
     res.locals.messages = require('express-messages')(req, res);
     next();
 });
-
+*/
 // Express Validator Middleware
 app.use(expressValidator({
     errorFormatter: function(param, msg, value) {
@@ -76,7 +83,7 @@ app.use(expressValidator({
       };
     }
   }));
-
+/*
 // Passport config
 require('./config/passport')(passport);
 // Passport Middleware
@@ -93,8 +100,8 @@ var users = [
     {
         id:1,
         first_name:'John',
-        last_name:'Dow',
-        email: 'jdoe@yahoo.com'
+        last_name:'Snow',
+        email: 'jsnow@yahoo.com'
     },
     {
         id:1,
@@ -120,12 +127,29 @@ app.get('/', function(req,res){
 app.post('/users/add', function(req, res){
     //console.log('Form submitted!');
     //console.log(req.body.first_name);
+    
+    req.checkBody('first_name', 'First Name is required').notEmpty();
+    req.checkBody('email', 'Email is required').notEmpty();
+    
+    var errors = req.validationErrors();
+
+    if(errors){
+        res.render('index', {
+            title: "DataBase",
+            users: users,
+            errors: errors
+        });
+    } else {
+
     var newUser = {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email
     }
-    console.log(newUser);
+    //console.log(newUser);
+    console.log('success');
+}
+
 });
 
 
