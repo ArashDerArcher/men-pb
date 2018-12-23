@@ -101,20 +101,6 @@ app.get('*', function(req, res, next){
 });
 */
 
-var users = [
-    {
-        id:1,
-        first_name:'John',
-        last_name:'Snow',
-        email: 'jsnow@yahoo.com'
-    },
-    {
-        id:1,
-        first_name:'Bob',
-        last_name:'Sponge',
-        email: 'bsponge@gmail.com'
-    }
-]
 // Home Route
 app.get('/', function(req,res){
     //users collection in DB
