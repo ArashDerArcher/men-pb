@@ -11,6 +11,7 @@ const mongojs = require('mongojs');
 
 // mongojs([db_name], ['collection'])
 var db = mongojs('menpb', ['users']);
+var ObjectId = mongojs.ObjectId;
 
 /*
 mongoose.connect(config.database);
@@ -154,6 +155,15 @@ app.post('/users/add', function(req, res){
 
 });
 
+app.delete('/users/delete/:id', function(req, res){
+    //console.log(req.params.id)
+    db.users.remove({_id: ObjectId(req.params.id)}, function(err, result){
+        if(err){
+            console.log(err);
+        }
+        res.redirect('/');
+    });
+});
 
 /*
 // Route files
