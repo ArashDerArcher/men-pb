@@ -1,5 +1,5 @@
-#Article Knowledgebase App
-This is a knowledgebase app written in Express and NodeJS
+#Knowledgebase App for organizing Articles
+This is a knowledgebase app written in Express and NodeJS.
 
 #Technologies
 * Bootstrap
